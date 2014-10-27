@@ -2,6 +2,7 @@
 ==========================
 
 Data Set
+---
 
 The data for this project come from this source: http://groupware.les.inf.puc-rio.br/har.  We are required to assess how well barbell are performed by subjects equiped with accelerometers on the belt, arm, forearm, and dumbells.
 
@@ -19,7 +20,7 @@ Several machine learning algorithms were tried out:
 
 Random Forest technique is followed for this project.  The basic random forest approach is improved by eliminating the least important variables: out of 52 suited variables we keep 36 with a slight increase of the accuracy in the prediction. 
 
-Finally we double check the estimation of the out of sample error rate got from cross validation and the out-of-bag error rate provided in "Random Forests" by applying the final algorithm to the test set.
+Finally we double check the estimation of the out of sample error rate from cross validation and the out-of-bag error rate provided in "Random Forests" by applying the final algorithm to the test set.
 
 The out of sample error rate is 0.5 %.
 
@@ -28,7 +29,7 @@ The data set contains two types of records:
 •opening window record that contains some aggregate information
 •single instant measures
 
-We will investigate the single measures and ignore the time series aspect measures.
+We will investigate the single measures and ignore the time series measures.
 
 library(caret)
 library(randomForest)
@@ -115,10 +116,3 @@ confusionMatrix(ClassesPredicted, TestingCenSca[,"classe"])
 For the model modelFitRfSel the out-of-bag error rate 0.49 % was remarkably close to the error rate on the test set 0.5 %.
 
 On this data set the out-of-bag estimate of the error rate is quite reliable.
-=======
-9 Developing Data Products from Coursera
-====================
-
- datasciencecoursera
-
->>>>>>> afc934a9173dc0bc03e56968e69d0ff5f1fe44ea
