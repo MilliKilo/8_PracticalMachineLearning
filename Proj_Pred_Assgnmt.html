@@ -1,0 +1,83 @@
+<html>
+
+<head>
+<title>Title</title>
+</head>
+
+<body>
+
+<p>This is an R HTML document. When you click the <b>Knit HTML</b> button a web page will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
+
+<!--begin.rcode
+setwd("C:/Users/Rubina/Desktop/R/Class/PML")  
+library(caret)
+install.packages("randomForest")
+library(randomForest)
+rfNews()
+
+fileUrl <- "https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv"
+download.file(fileUrl, destfile = "pml-training.csv")
+data <- read.csv("pml-training.csv")
+detail <- data[data$new_window == "no",]
+set.seed(124)
+inTrain<- createDataPartition(y=detail$classe, p=.7,list=F)
+Training <-detail[inTrain,]
+Testing<-detail[-inTrain,]
+
+# eliminate the features that are completed NA
+predictors <- sapply(1:160, function(x) all(!is.na(Training[,x]) & is.numeric(Training[,x])))
+# exclude the first columns not suited as predictors
+predictors[1:7] <- FALSE
+num.predictors <- sum(predictors)
+TrainingNoNA <- Training[,predictors]
+# center and scale the features
+prepro <- preProcess(TrainingNoNA, method=c("center", "scale"))
+TrainingCenSca <- predict(prepro, TrainingNoNA)
+# add the outcome variable
+TrainingCenSca[,"classe"] <- Training[,"classe"]
+
+# Use randomForest package to predict the classes
+modelFitRf <- randomForest(classe ~ ., data = TrainingCenSca, importance=TRUE)
+modelFitRf
+
+varImpPlot(modelFitRf)
+vi <- (varImp(modelFitRf))
+
+# Let us illustrate the selection with the median. 
+i <- 50
+threshold <- apply(vi, 2, function(x) quantile(x, probs = i / 100))
+keep.var <- apply(vi, 1, function(x) any(x > threshold))
+predictors2 <- rownames(vi)[!is.na(keep.var) & keep.var == TRUE]
+TrainingSel <- TrainingCenSca[,predictors2]
+
+# add the outcome variable
+TrainingSel[,"classe"] <- Training[,"classe"]
+modelFitRfSel <- randomForest(classe ~ ., data = TrainingSel, importance=TRUE)
+modelFitRfSel
+
+predictors2
+[1] "roll_belt"            "pitch_belt"           "yaw_belt"             "gyros_belt_z"         "accel_belt_z"        
+[6] "magnet_belt_x"        "magnet_belt_y"        "magnet_belt_z"        "roll_arm"             "yaw_arm"             
+[11] "gyros_arm_x"          "gyros_arm_y"          "accel_arm_x"          "magnet_arm_z"         "roll_dumbbell"       
+[16] "yaw_dumbbell"         "total_accel_dumbbell" "gyros_dumbbell_y"     "accel_dumbbell_y"     "accel_dumbbell_z"    
+[21] "magnet_dumbbell_x"    "magnet_dumbbell_y"    "magnet_dumbbell_z"    "roll_forearm"         "pitch_forearm"       
+[26] "yaw_forearm"          "total_accel_forearm"  "gyros_forearm_y"      "gyros_forearm_z"      "accel_forearm_x"     
+[31] "accel_forearm_y"      "accel_forearm_z"      "magnet_forearm_y"     "magnet_forearm_z"    
+> 
+# The function  rfcv  computes the out of sample error rate by using cross validation when less and 
+# less variables are used.
+library(ggplot2)
+set.seed(124)
+res <- rfcv(TrainingSel[,-dim(TrainingSel)[2]], TrainingSel[,"classe"], cv.fold = 10)
+qplot(res$n.var, res$error.cv, xlab="Number of Variables", ylab="Error Rate", main="Cross Validation Error Rate by Number of Variables", geom="line", ylim = c(0,0.1))
+
+end.rcode-->
+
+<p>You can also embed plots, for example:</p>
+
+<!--begin.rcode fig.width=7, fig.height=6
+plot(cars)
+end.rcode-->
+
+</body>
+</html>
