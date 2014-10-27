@@ -3,10 +3,9 @@
 
 Data Set
 
-The data for this project come from this source: http://groupware.les.inf.puc-rio.br/har.  We are required to assess how well barbells are performed by subjects equiped with accelerometers on the belt, arm, forearm, and dumbells.
+The data for this project come from this source: http://groupware.les.inf.puc-rio.br/har.  We are required to assess how well barbell are performed by subjects equiped with accelerometers on the belt, arm, forearm, and dumbells.
 
 Executive Summary
----
 The data set has been split into 2 parts:
 •training (70%)
 •testing (30%)
@@ -116,4 +115,10 @@ confusionMatrix(ClassesPredicted, TestingCenSca[,"classe"])
 For the model modelFitRfSel the out-of-bag error rate 0.49 % was remarkably close to the error rate on the test set 0.5 %.
 
 On this data set the out-of-bag estimate of the error rate is quite reliable.
+=======
+9 Developing Data Products from Coursera
+====================
 
+ datasciencecoursera
+
+>>>>>>> afc934a9173dc0bc03e56968e69d0ff5f1fe44ea
