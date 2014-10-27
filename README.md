@@ -20,10 +20,6 @@ Several machine learning algorithms were tried out:
 
 •Linear Discrimant Analysis
 
-•Support Vector Machines
-
-•Adaboost
-
 •Random Forests
 
 Random Forest technique is followed for this project.  The basic random forest approach is improved by eliminating the least important variables: out of 52 suited variables we keep 36 with a slight increase of the accuracy in the prediction. 
@@ -135,7 +131,9 @@ The Final Test
 TestingNoNA <- Testing[,predictors]
 TestingCenSca <- predict(prepro,TestingNoNA)
 TestingCenSca[,"classe"] <- Testing[,"classe"]
+```
 ## Check the handcrafted model
+```{r}
 ClassesPredicted <- predict(modelFitRfSel, TestingCenSca)
 confusionMatrix(ClassesPredicted, TestingCenSca[,"classe"])
 ```
