@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 8_Practical Machine Learning Project
 ==========================
 
