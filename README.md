@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 8_Practical Machine Learning Project
 ==========================
 
@@ -115,3 +116,10 @@ confusionMatrix(ClassesPredicted, TestingCenSca[,"classe"])
 For the model modelFitRfSel the out-of-bag error rate 0.49 % was remarkably close to the error rate on the test set 0.5 %.
 
 On this data set the out-of-bag estimate of the error rate is quite reliable.
+=======
+9 Developing Data Products from Coursera
+====================
+
+ datasciencecoursera
+
+>>>>>>> afc934a9173dc0bc03e56968e69d0ff5f1fe44ea

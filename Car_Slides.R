@@ -1,0 +1,10 @@
+install.packages("devtools")
+library(devtools)
+require(devtools)
+install_github(c('slidify', 'slidifyLibraries'), 'ramnathv', ref = 'dev')
+install_github(c('rCharts', 'ramnathv')
+install_github(c('shiny','rstudio')
+library(slidify)
+
+setwd("C:/Users/Rubina/Desktop/R/Class/DDP/shny/Custom_Car")
+author('Custom_Car')

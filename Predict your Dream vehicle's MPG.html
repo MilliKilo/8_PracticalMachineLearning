@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)https://millikilo.shinyapps.io/shny/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--<base href="_w_821e18c0576aeb9c10de3fbd8e4c1175db1ea04efb09d1c0/">--><base href=".">
+    <script type="text/javascript">
+(function() {
+  // http://stackoverflow.com/questions/10964966/detect-ie-version-in-javascript
+  function isIE () {
+    var myNav = navigator.userAgent.toLowerCase();
+    return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
+  }
+
+  if (isIE() === 8 || isIE() === 9){
+    // Set an absolute base href.
+    baseURL = document.URL;
+    baseURL = baseURL.substring(0, baseURL.lastIndexOf('/'));
+    document.getElementsByTagName('base')[0].setAttribute('href', baseURL + '/_w_821e18c0576aeb9c10de3fbd8e4c1175db1ea04efb09d1c0/');
+  }
+})();
+</script>
+  
+  <script type="application/shiny-singletons"></script>
+  <script type="application/html-dependencies">json2[2014.02.04];jquery[1.11.0];shiny[0.10.2.1];jslider[1];bootstrap[2.3.2];bootstrap-responsive[2.3.2]</script>
+<script src="./Predict your Dream vehicle's MPG_files/json2-min.js"></script>
+<script src="./Predict your Dream vehicle's MPG_files/jquery.js"></script>
+<link href="https://millikilo.shinyapps.io/shny/_w_821e18c0576aeb9c10de3fbd8e4c1175db1ea04efb09d1c0/shared/shiny.css" rel="stylesheet">
+<script src="./Predict your Dream vehicle's MPG_files/shiny.js"></script>
+<link href="https://millikilo.shinyapps.io/shny/_w_821e18c0576aeb9c10de3fbd8e4c1175db1ea04efb09d1c0/shared/slider/css/jquery.slider.min.css" rel="stylesheet">
+<script src="./Predict your Dream vehicle's MPG_files/jquery.slider.min.js"></script>
+<link href="https://millikilo.shinyapps.io/shny/_w_821e18c0576aeb9c10de3fbd8e4c1175db1ea04efb09d1c0/shared/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="./Predict your Dream vehicle's MPG_files/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://millikilo.shinyapps.io/shny/_w_821e18c0576aeb9c10de3fbd8e4c1175db1ea04efb09d1c0/shared/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+  <title>Predict your Dream vehicle's MPG</title>
+<script src="./Predict your Dream vehicle's MPG_files/sockjs-0.3.min.js"></script>
+<script src="./Predict your Dream vehicle's MPG_files/shiny-server-pro.js"></script>
+<link rel="stylesheet" type="text/css" href="./Predict your Dream vehicle's MPG_files/shiny-server.css">
+
+</head>
+<body class="disconnected">
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span12" style="padding: 10px 0px;">
+      <h1>Predict your Dream vehicle's MPG</h1>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span4">
+      <form class="well">
+        <div>
+          <label class="control-label" for="variable1">Cylinders</label>
+          <input id="variable1" type="slider" name="variable1" value="4" class="jslider shiny-bound-input" data-from="2" data-to="8" data-step="2" data-skin="plastic" data-round="FALSE" data-locale="us" data-format="#,##0.#####" data-scale="|;|;|;|" data-smooth="FALSE" style="display: none;"><span class="jslider jslider_plastic jslider-single"><table><tbody><tr><td><div class="jslider-bg"><i class="l"></i><i class="r"></i><i class="v"></i></div><div class="jslider-pointer" style="left: 33.3%;"></div><div class="jslider-pointer jslider-pointer-to"></div><div class="jslider-label"><span>2</span></div><div class="jslider-label jslider-label-to"><span>8</span></div><div class="jslider-value" style="left: 33.3%; margin-left: -4.5px; right: auto;"><span>4</span></div><div class="jslider-value jslider-value-to"><span></span></div><div class="jslider-scale"><span style="left: 0%"></span><span style="left: 33.3%"></span><span style="left: 66.6%"></span><span style="left: 99.89999999999999%"></span></div></td></tr></tbody></table></span>
+        </div>
+        <div>
+          <label class="control-label" for="variable2">Displacement</label>
+          <input id="variable2" type="slider" name="variable2" value="72.1" class="jslider shiny-bound-input" data-from="71.1" data-to="472" data-step="1" data-skin="plastic" data-round="FALSE" data-locale="us" data-format="#,##0.#####" data-smooth="FALSE" style="display: none;"><span class="jslider jslider_plastic jslider-single"><table><tbody><tr><td><div class="jslider-bg"><i class="l"></i><i class="r"></i><i class="v"></i></div><div class="jslider-pointer" style="left: 0.2%;"></div><div class="jslider-pointer jslider-pointer-to"></div><div class="jslider-label" style="display: none;"><span>71.1</span></div><div class="jslider-label jslider-label-to"><span>472</span></div><div class="jslider-value" style="left: 0.2%; margin-left: -0.44px; right: auto;"><span>72.1</span></div><div class="jslider-value jslider-value-to"><span></span></div><div class="jslider-scale"></div></td></tr></tbody></table></span>
+        </div>
+        <div>
+          <label class="control-label" for="variable3">Horsepower</label>
+          <input id="variable3" type="slider" name="variable3" value="90" class="jslider shiny-bound-input" data-from="52" data-to="335" data-step="1" data-skin="plastic" data-round="FALSE" data-locale="us" data-format="#,##0.#####" data-smooth="FALSE" style="display: none;"><span class="jslider jslider_plastic jslider-single"><table><tbody><tr><td><div class="jslider-bg"><i class="l"></i><i class="r"></i><i class="v"></i></div><div class="jslider-pointer" style="left: 13.4%;"></div><div class="jslider-pointer jslider-pointer-to"></div><div class="jslider-label"><span>52</span></div><div class="jslider-label jslider-label-to"><span>335</span></div><div class="jslider-value" style="left: 13.4%; margin-left: -7px; right: auto;"><span>90</span></div><div class="jslider-value jslider-value-to"><span></span></div><div class="jslider-scale"></div></td></tr></tbody></table></span>
+        </div>
+        <div>
+          <label class="control-label" for="variable4">Weight</label>
+          <input id="variable4" type="slider" name="variable4" value="2.013" class="jslider shiny-bound-input" data-from="1.513" data-to="5.424" data-step="0.1" data-skin="plastic" data-round="FALSE" data-locale="us" data-format="#,##0.#####" data-smooth="FALSE" style="display: none;"><span class="jslider jslider_plastic jslider-single"><table><tbody><tr><td><div class="jslider-bg"><i class="l"></i><i class="r"></i><i class="v"></i></div><div class="jslider-pointer" style="left: 12.8%;"></div><div class="jslider-pointer jslider-pointer-to"></div><div class="jslider-label" style="display: none;"><span>1.513</span></div><div class="jslider-label jslider-label-to"><span>5.424</span></div><div class="jslider-value" style="left: 12.8%; margin-left: -13.5px; right: auto;"><span>2.013</span></div><div class="jslider-value jslider-value-to"><span></span></div><div class="jslider-scale"></div></td></tr></tbody></table></span>
+        </div>
+        <div>
+          <label class="control-label" for="variable5">Automatic/Manual</label>
+          <input id="variable5" type="slider" name="variable5" value="0" class="jslider shiny-bound-input" data-from="0" data-to="1" data-step="1" data-skin="plastic" data-round="FALSE" data-locale="us" data-format="#,##0.#####" data-scale="|;|" data-smooth="FALSE" style="display: none;"><span class="jslider jslider_plastic jslider-single"><table><tbody><tr><td><div class="jslider-bg"><i class="l"></i><i class="r"></i><i class="v"></i></div><div class="jslider-pointer" style="left: 0%;"></div><div class="jslider-pointer jslider-pointer-to"></div><div class="jslider-label" style="display: none;"><span>0</span></div><div class="jslider-label jslider-label-to"><span>1</span></div><div class="jslider-value" style="left: 0%; margin-left: 0px; right: auto;"><span>0</span></div><div class="jslider-value jslider-value-to"><span></span></div><div class="jslider-scale"><span style="left: 0%"></span><span style="left: 100%"></span></div></td></tr></tbody></table></span>
+        </div>
+        <hr>
+        <div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+    <div class="span8">
+      <h4>Predicted MPG</h4>
+      <pre id="prediction" class="shiny-text-output shiny-bound-output">[1] "25.4964326070466"</pre>
+    </div>
+  </div>
+</div>
+
+<div style="top: 50%; left: 50%; position: absolute; display: none;"><div style="position: relative; width: 300px; margin-left: -150px; padding: .5em 1em 0 1em; height: 400px; margin-top: -190px; background-color: #FAFAFA; border: 1px solid #CCC; font.size: 1.2em;"><h3>Select Network Methods</h3><div id="networkOptions"><label><input type="checkbox" id="ss-net-opt-websocket" name="shiny-server-proto-checkbox" value="0" class="shiny-bound-input"> websocket</label><label><input type="checkbox" id="ss-net-opt-xdr-streaming" name="shiny-server-proto-checkbox" value="1" class="shiny-bound-input"> xdr-streaming</label><label><input type="checkbox" id="ss-net-opt-xhr-streaming" name="shiny-server-proto-checkbox" value="2" class="shiny-bound-input"> xhr-streaming</label><label><input type="checkbox" id="ss-net-opt-iframe-eventsource" name="shiny-server-proto-checkbox" value="3" class="shiny-bound-input"> iframe-eventsource</label><label><input type="checkbox" id="ss-net-opt-iframe-htmlfile" name="shiny-server-proto-checkbox" value="4" class="shiny-bound-input"> iframe-htmlfile</label><label><input type="checkbox" id="ss-net-opt-xdr-polling" name="shiny-server-proto-checkbox" value="5" class="shiny-bound-input"> xdr-polling</label><label><input type="checkbox" id="ss-net-opt-xhr-polling" name="shiny-server-proto-checkbox" value="6" class="shiny-bound-input"> xhr-polling</label><label><input type="checkbox" id="ss-net-opt-iframe-xhr-polling" name="shiny-server-proto-checkbox" value="7" class="shiny-bound-input"> iframe-xhr-polling</label><label><input type="checkbox" id="ss-net-opt-jsonp-polling" name="shiny-server-proto-checkbox" value="8" class="shiny-bound-input"> jsonp-polling</label></div><div id="network-prot-warning" style="color: #44B"></div><div style="float: right;"><input type="button" value="Reset" onclick="ShinyServer.enableAll()"><input type="button" value="OK" onclick="ShinyServer.toggleNetworkSelector();" style="margin-left: 1em;" id="netOptOK"></div></div></div></body></html>
